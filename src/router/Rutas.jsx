@@ -1,5 +1,6 @@
 import { createHashRouter } from "react-router-dom"
 import Home from "../home/Home"
+import Disponibilidad from "../disponibilidad/Disponibilidad"
 
 
 const Rutas = () => {
@@ -7,7 +8,11 @@ const Rutas = () => {
         {
             path: "/",
             element: <Home/>
-        }
+        },
+        {
+            path: "/disponibilidad",
+            element: <Disponibilidad/>
+        },
 
         
     ])
