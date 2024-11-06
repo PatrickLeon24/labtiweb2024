@@ -1,3 +1,4 @@
+import Card from "../card/Card"
 import Sidebar from "../sidebar/Sidebar"
 import TopBar from "../topbar/TopBar"
 
@@ -17,6 +18,9 @@ const Home = () => {
         {/* Este es el espacio en blanco donde puedes poner el contenido */}
         <h2>Conoce los Laboratorios</h2>
         <p>Aquí va el contenido principal de tu aplicación.</p>
+        <Card/>
+        <Card/>
+        <Card/>
       </div>
     </div>
   </div>
