@@ -4,7 +4,7 @@ import React from 'react';
 const Card = ({ title, description }) => {
   return (
     <div style={styles.cardContainer}>
-      <h3 style={styles.cardTitle}>{title}</h3>
+      <h1 style={styles.cardTitle}>Internet de las cosas</h1>
       <div style={styles.cardContent}>
         <div style={styles.imagePlaceholder}>
           <div style={styles.shape}></div>
@@ -13,7 +13,7 @@ const Card = ({ title, description }) => {
         </div>
         <div style={styles.descriptionContainer}>
           <h4 style={styles.descriptionTitle}>Descripción</h4>
-          <p style={styles.descriptionText}>{description}</p>
+          <p style={styles.descriptionText}>{description}Internet de las cosas</p>
           <a href="#" style={styles.link}>Ver todo</a>
         </div>
       </div>
@@ -24,25 +24,25 @@ const Card = ({ title, description }) => {
 // Estilos en línea
 const styles = {
   cardContainer: {
-    width: '300px',
+    width: '700px',
     backgroundColor: '#f5e1c0',
     padding: '15px',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    margin: '10px',
+    margin: '30px',
   },
   cardTitle: {
     fontSize: '18px',
     fontWeight: 'bold',
-    marginBottom: '10px',
+    marginBottom: '15px',
   },
   cardContent: {
     display: 'flex',
     alignItems: 'center',
   },
   imagePlaceholder: {
-    width: '80px',
-    height: '80px',
+    width: '278px',
+    height: '268px',
     backgroundColor: '#e0e0e0',
     display: 'flex',
     justifyContent: 'center',
