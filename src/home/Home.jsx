@@ -1,5 +1,5 @@
 import Card from "../card/Card"
-import Sidebar from "../sidebar/Sidebar"
+import Sidebar from "../sidebar/sidebar"
 import TopBar from "../topbar/TopBar"
 
 const Home = () => {
