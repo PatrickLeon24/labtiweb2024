@@ -60,7 +60,7 @@ const Sidebar = () => {
         Inicio
       </a>
       <a
-        href="#curso"
+        href="#cursos"
         style={{
           ...styles.navItem,
           ...(hovered === 1 ? styles.navItemHover : {}),
