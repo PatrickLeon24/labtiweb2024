@@ -6,6 +6,7 @@ import Rutas from "./router/Rutas"
 const App= ()=> {
   return (
     <RouterProvider router={ Rutas() } />
+    
   );
 }
 
