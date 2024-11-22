@@ -49,7 +49,7 @@ const Sidebar = () => {
   };
 
   const handleItemClick = (index) => {
-    setSelected(index);
+    setSelected(index);  // Update the selected item
   };
 
   return (
@@ -63,7 +63,7 @@ const Sidebar = () => {
         }}
         onMouseEnter={() => handleMouseEnter(0)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(0)}
+        onClick={() => handleItemClick(0)}  // Removed preventDefault()
       >
         Inicio
       </a>
@@ -72,11 +72,11 @@ const Sidebar = () => {
         style={{
           ...styles.navItem,
           ...(hovered === 1 ? styles.navItemHover : {}),
-          ...(selected === 1 || selected === 2 ? styles.navItemSelected : {}),
+          ...(selected === 1 ? styles.navItemSelected : {}),
         }}
         onMouseEnter={() => handleMouseEnter(1)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(1)}
+        onClick={() => handleItemClick(1)}  // Removed preventDefault()
       >
         Cursos
       </a>
@@ -85,11 +85,11 @@ const Sidebar = () => {
         style={{
           ...styles.navItem,
           ...(hovered === 2 ? styles.navItemHover : {}),
-          ...(selected === 1 || selected === 2 ? styles.navItemSelected : {}),
+          ...(selected === 2 ? styles.navItemSelected : {}),
         }}
         onMouseEnter={() => handleMouseEnter(2)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(2)}
+        onClick={() => handleItemClick(2)}  // Removed preventDefault()
       >
         Disponibilidad
       </a>
@@ -102,12 +102,13 @@ const Sidebar = () => {
         }}
         onMouseEnter={() => handleMouseEnter(3)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(3)}
+        onClick={() => handleItemClick(3)}  // Removed preventDefault()
       >
         Materiales
       </a>
+      
       <a
-        href="#guias"
+        href="#manuales"
         style={{
           ...styles.navItem,
           ...(hovered === 4 ? styles.navItemHover : {}),
@@ -115,20 +116,7 @@ const Sidebar = () => {
         }}
         onMouseEnter={() => handleMouseEnter(4)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(4)}
-      >
-        Guías
-      </a>
-      <a
-        href="#manuales"
-        style={{
-          ...styles.navItem,
-          ...(hovered === 5 ? styles.navItemHover : {}),
-          ...(selected === 5 ? styles.navItemSelected : {}),
-        }}
-        onMouseEnter={() => handleMouseEnter(5)}
-        onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(5)}
+        onClick={() => handleItemClick(4)}  // Removed preventDefault()
       >
         Manuales
       </a>
