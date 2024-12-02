@@ -23,15 +23,21 @@ const Manual = () => {
           <div className="manual-list">
             <div className="manual-item">
               <span>Manual de Servomotor</span>
-              <button className="download-button">⬇ Descargar</button>
+              <a href="/manuals/Doc1.pdf" className="download-button" download>
+                ⬇ Descargar
+              </a>
             </div>
             <div className="manual-item">
               <span>Manual de sensor DHT11</span>
-              <button className="download-button">⬇ Descargar</button>
+              <a href="/manuals/manual_sensor_dht11.pdf" className="download-button" download>
+                ⬇ Descargar
+              </a>
             </div>
             <div className="manual-item">
               <span>Manual de Buzzer</span>
-              <button className="download-button">⬇ Descargar</button>
+              <a href="/manuals/manual_buzzer.pdf" className="download-button" download>
+                ⬇ Descargar
+              </a>
             </div>
           </div>
         </div>
