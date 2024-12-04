@@ -71,4 +71,8 @@
     color: #888;
     margin-top: 10px;
   }
-  
+  .hora {
+    background-color: #c0dbea; /* Plomo */
+    color: #070707; /* Blanco para el texto */
+    font-weight: bold;
+}

@@ -52,16 +52,19 @@ const Disponibilidad = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {horario.map((fila, index) => (
-                    <tr key={index}>
-                      {fila.map((celda, idx) => (
-                        <td key={idx} className={celda ? "disponible" : ""}>
-                          {celda}
-                        </td>
+                    {horario.map((fila, index) => (
+                      <tr key={index}>
+                        {fila.map((celda, idx) => (
+                          <td
+                            key={idx}
+                            className={idx === 0 ? "hora" : celda ? "disponible" : ""}
+                          >
+                            {celda}
+                          </td>
                       ))}
                     </tr>
                   ))}
-                </tbody>
+                  </tbody>
               </table>
               <div className="legend">
                 <div className="disponible-box"></div>
