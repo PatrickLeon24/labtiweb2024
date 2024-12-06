@@ -48,7 +48,7 @@
   align-items: center; /* Centra horizontalmente */
   padding: 20px;
   margin-top: 64px; /* Asegura que el contenido quede debajo del TopBar */
-  margin-left: 550px; /* Reserva espacio para el Sidebar */
+  /* Reserva espacio para el Sidebar */
   overflow-y: auto;
   text-align: center;
   min-height: calc(100vh - 64px); /* Asegura altura completa restando la TopBar */
