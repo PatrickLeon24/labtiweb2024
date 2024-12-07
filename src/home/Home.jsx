@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import CardList from "../card/CardList";
 import Sidebar from "../sidebar/sidebar";
 import TopBar from "../topbar/TopBar";
 import "./Home.css";  // Importamos el archivo CSS
 import Aula from "./Aula";
+import { local, pcdeApoyo } from '../config';
 
 const Home = () => {
   const [laboratorios, setLaboratorios] = useState([]);  // Estado para almacenar los laboratorios
@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchLaboratorios = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/back/obtener_laboratorios");  // Asegúrate de que la URL sea la correcta
+        const response = await fetch(`http://${pcdeApoyo}/back/obtener_laboratorios`);  // Asegúrate de que la URL sea la correcta
         if (!response.ok) {
           throw new Error("No se pudieron cargar los laboratorios");
         }
@@ -41,9 +41,8 @@ const Home = () => {
           <h2>Conoce los Laboratorios</h2>
           <p>Los laboratorios de LABS TI son espacios interactivos para aprender y practicar habilidades 
             en tecnología e informática mediante actividades guiadas y simulaciones.</p>
-            <div className="cursos-container">
-              <h2 className="cursos-title">Contamos con los siguientes laboratorios ...</h2>
-              <div className="cursos-list">
+            
+              
                 {/* Mapear los laboratorios y pasarlos como props a Aula */}
                 {laboratorios.map((laboratorio) => (
                   <Aula 
@@ -53,8 +52,8 @@ const Home = () => {
                     imagen={laboratorio.foto1}  // Puedes elegir cuál foto mostrar
                   />
                 ))}
-              </div>
-            </div>
+              
+            
         </div>
       </div>
     </div>

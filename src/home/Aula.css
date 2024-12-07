@@ -1,4 +1,4 @@
-.cursos-container {
+.aula-container {
     max-width: 1200px;
     margin: auto;
     padding: 40px;
@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
   }
   
-  .cursos-title {
+  .aula-title {
     font-size: 28px;
     font-weight: bold;
     color: #333;
@@ -15,7 +15,7 @@
   }
   
   /* Ajusta las tarjetas en una sola columna y centradas */
-  .cursos-list {
+  .aula-list {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centra las tarjetas horizontalmente */
@@ -23,7 +23,7 @@
   }
   
   /* Estilo para cada tarjeta de curso */
-  .curso-card {
+  .aula-card {
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -37,13 +37,13 @@
     margin: 0 auto; /* Centra las tarjetas */
   }
   
-  .curso-card:hover {
+  .aula-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
   }
   
-  /* Estilo para el espacio de la imagen del curso */
-  .curso-image-placeholder {
+  /* Estilo para el espacio de la imagen del aula */
+  .aula-image-placeholder {
     width: 100%;
     height: 250px; /* Aumenta la altura de la imagen */
     background-color: #e0e0e0;
@@ -51,32 +51,32 @@
     margin-bottom: 20px;
   }
   
-  .curso-image {
+  .aula-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   
-  .curso-nombre {
+  .aula-nombre {
     font-size: 24px;
     font-weight: bold;
     color: #333;
   }
   
-  .curso-nivel {
+  .aula-nivel {
     font-size: 18px;
     color: #777;
     margin-bottom: 10px;
   }
   
-  .curso-descripcion {
+  .aula-descripcion {
     font-size: 16px;
     color: #555;
     line-height: 1.5;
   }
   
   /* Enlace "Ver todo" */
-  .curso-link {
+  .aula-link {
     color: #007bff;
     font-size: 14px;
     text-decoration: none;
@@ -84,7 +84,7 @@
     display: inline-block;
   }
   
-  .curso-link:hover {
+  .aula-link:hover {
     text-decoration: underline;
   }
   
@@ -92,67 +92,67 @@
   
   /* Para pantallas pequeñas (móviles) */
   @media (max-width: 767px) {
-    .cursos-container {
+    .aula-container {
       padding: 20px;
     }
   
-    .cursos-title {
+    .aula-title {
       font-size: 22px;
     }
   
-    .cursos-list {
+    .aula-list {
       gap: 20px;
     }
   
-    .curso-card {
+    .aula-card {
       max-width: 100%;
       padding: 20px;
     }
   
-    .curso-nombre {
+    .aula-nombre {
       font-size: 18px;
     }
   
-    .curso-descripcion {
+    .aula-descripcion {
       font-size: 14px;
     }
   
-    .curso-link {
+    .aula-link {
       font-size: 12px;
     }
   }
   
   /* Para pantallas medianas (tabletas) */
   @media (max-width: 1024px) {
-    .cursos-list {
+    .aula-list {
       gap: 30px;
     }
   
-    .curso-card {
+    .aula-card {
       max-width: 90%;
       padding: 25px;
     }
   
-    .curso-nombre {
+    .aula-nombre {
       font-size: 20px;
     }
   
-    .curso-descripcion {
+    .aula-descripcion {
       font-size: 15px;
     }
   
-    .curso-link {
+    .aula-link {
       font-size: 13px;
     }
   }
   
   /* Para pantallas grandes (escritorios grandes) */
   @media (min-width: 1200px) {
-    .cursos-list {
+    .aula-list {
       gap: 50px; /* Mayor separación entre tarjetas en pantallas grandes */
     }
   
-    .curso-card {
+    .aula-card {
       max-width: 900px; /* Fija el ancho máximo de la tarjeta en pantallas grandes */
       padding: 40px; /* Mayor padding para dar espacio al contenido */
     }

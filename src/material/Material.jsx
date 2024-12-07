@@ -1,43 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../sidebar/sidebar";
 import TopBar from "../topbar/TopBar";
-//import "./Material.css"; // Archivo CSS para estilos específicos
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import "@react-pdf-viewer/core/lib/styles/index.css";
-
+import "./Material.css";
+import { local, pcdeApoyo } from '../config';
 const Material = () => {
-  const tableData = [
-    { item: 1, descripcion: "Alicate de corte STANDER 6\" diagonal", cantidad: 14 },
-    { item: 2, descripcion: "Arduino MEGA 2560", cantidad: 36 },
-    { item: 3, descripcion: "Botón pulsador de 2 pines para protoboard", cantidad: 21 },
-    { item: 4, descripcion: "Botón pulsador de 4 pines en colores variados para protoboard", cantidad: 68 },
-    { item: 5, descripcion: "Cable USB-A macho a USB-A macho", cantidad: 32 },
-    { item: 6, descripcion: "Cables dupont para arduino x 20 unidades (20 cms) (MM, HH, MH)", cantidad: "-" },
-    { item: 7, descripcion: "Compuerta lógica 74HC00 NAND", cantidad: 26 },
-    { item: 8, descripcion: "Compuerta lógica 74HC02 NOR", cantidad: 28 },
-    { item: 9, descripcion: "Compuerta lógica 74HC04 NOT", cantidad: 70 },
-    { item: 10, descripcion: "Compuerta lógica 74LS04 NOT", cantidad: 33 },
-    { item: 11, descripcion: "Compuerta lógica 74LS08 AND", cantidad: 58 },
-    { item: 12, descripcion: "Compuerta lógica 74HC08 AND", cantidad: 92 },
-  ];
+  const [materiales, setMateriales] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Estado para el archivo PDF cargado manualmente
-  const [pdfFile, setPdfFile] = useState(null);
+  // Usamos useEffect para realizar la solicitud HTTP al backend
+  useEffect(() => {
+    fetch(`http://${pcdeApoyo}/back/obtener_materiales`) // Cambia la URL si es necesario
+      .then((response) => response.json())
+      .then((data) => {
+        setMateriales(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los materiales:", error);
+        setLoading(false);
+      });
+  }, []);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const fileURL = URL.createObjectURL(file);
-      setPdfFile(fileURL);
+  if (loading) {
+    return <div>Cargando materiales...</div>;
+  }
+
+  // Agrupar materiales por curso
+  const cursosConMateriales = materiales.reduce((acc, material) => {
+    const cursoId = material["curso__id"];
+    if (!acc[cursoId]) {
+      acc[cursoId] = {
+        cursoId,
+        cursoNombre: material["curso__nombre"],
+        materiales: [],
+      };
     }
-  };
+    acc[cursoId].materiales.push(material);
+    return acc;
+  }, {});
+
+  // Convertir el objeto en un array de cursos
+  const cursos = Object.values(cursosConMateriales);
 
   return (
     <div className="material-container">
-      {/* TopBar */}
+      {/* TopBar en la parte superior */}
       <TopBar className="topbar" />
-
-      {/* Contenedor con Sidebar y contenido */}
+      
+      {/* Contenedor para el Sidebar y el contenido principal */}
       <div style={{ display: "flex", flexGrow: 1 }}>
         {/* Sidebar */}
         <Sidebar className="sidebar" />
@@ -45,46 +55,28 @@ const Material = () => {
         {/* Contenido principal */}
         <div className="content">
           <h2>Materiales de LABS TI</h2>
-          <p>Consulta y gestiona los materiales disponibles, además de cargar un archivo PDF relacionado.</p>
+          <p>Consulta y descarga los materiales de tus cursos.</p>
 
-          {/* Tabla de Materiales */}
-          <table className="material-table">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableData.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.item}</td>
-                  <td>{row.descripcion}</td>
-                  <td>{row.cantidad}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          {/* Cargar archivo PDF */}
-          <div className="upload-section">
-            <input
-              type="file"
-              accept="application/pdf"
-              onChange={handleFileChange}
-              className="upload-input"
-            />
-          </div>
-
-          {/* Vista Previa del PDF */}
-          {pdfFile && (
-            <div className="pdf-preview">
-              <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js`}>
-                <Viewer fileUrl={pdfFile} />
-              </Worker>
+          {/* Mostrar los cursos con sus materiales */}
+          {cursos.map((curso) => (
+            <div key={curso.cursoId}>
+              <h3>{curso.cursoNombre}</h3>
+              <div className="material-list">
+                {curso.materiales.map((material) => (
+                  <div key={material.id} className="material-item">
+                    <span>{material.nombre}</span>
+                    <a
+                      href={material.url}
+                      className="download-button"
+                      download
+                    >
+                      ⬇ Descargar
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </div>

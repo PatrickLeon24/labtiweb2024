@@ -1,78 +1,43 @@
+/* Material.css */
+
 .material-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  .topbar {
-    background-color: #FF9800;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background-color: #F5F5F5;
-    padding: 10px;
-  }
-  
-  .content {
-    flex-grow: 1;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 28px;
-    color: #FF9800;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .material-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-  }
-  
-  .material-table th,
-  .material-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .material-table th {
-    background-color: #FF9800;
-    color: white;
-  }
-  
-  .material-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .upload-section {
-    margin: 20px 0;
-  }
-  
-  .upload-input {
-    font-size: 16px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .pdf-preview {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  align-items: left;
+}
+
+.material-list {
+  margin-top: 20px;
+}
+
+.material-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 500px;
+}
+
+.download-button {
+  padding: 5px 10px;
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: #E68A00;
+}

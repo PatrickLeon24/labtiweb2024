@@ -4,15 +4,15 @@ import './Aula.css';  // Asegúrate de importar los estilos CSS
 const Aula = ({ title, description, imagen }) => {
   return (
     <>
-      <div className="cursos-container">
-        <h2 className="cursos-title">{title}</h2>
-        <div className="cursos-list">
-          <div className="curso-card">
-            <div className="curso-image-placeholder">
-              <img src={imagen} alt={title} className="curso-image" />
+      <div className="aula-container">
+        <h2 className="aula-title">{title}</h2>
+        <div className="aula-list">
+          <div className="aula-card">
+            <div className="aula-image-placeholder">
+              <img src={imagen} alt={title} className="aula-image" />
             </div>
-            <h3 className="curso-nombre">{title}</h3>
-            <p className="curso-nivel">{description}</p>
+            <h3 className="aula-nombre">{title}</h3>
+            <p className="aula-nivel">{description}</p>
           </div>
         </div>
       </div>

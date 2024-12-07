@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../sidebar/sidebar";
 import TopBar from "../topbar/TopBar";
 import CursoCard from "./CursoCard"; // Asegúrate de importar el nuevo componente CursoCard
-
+import { local, pcdeApoyo } from '../config';
 const Cursos = () => {
   const [cursos, setCursos] = useState([]); // Estado para almacenar los cursos
   const [loading, setLoading] = useState(true); // Estado para el cargando (loading)
 
   // Usamos useEffect para realizar la solicitud HTTP al backend cuando el componente se monta
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/back/obtener_cursos') // Asegúrate de que esta URL coincida con tu endpoint en Django
+    fetch(`http://${pcdeApoyo}/back/obtener_cursos`) // Asegúrate de que esta URL coincida con tu endpoint en Django'http://127.0.0.1:8000/back/obtener_cursos
       .then((response) => response.json())
       .then((data) => {
         setCursos(data); // Establecemos los cursos obtenidos en el estado
@@ -28,19 +28,22 @@ const Cursos = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      {/* TopBar en la parte superior */}
       <TopBar />
-
-      {/* Contenedor para el Sidebar y el contenido principal */}
+  
       <div style={{ display: 'flex', flexGrow: 1 }}>
-        {/* Sidebar en la izquierda */}
         <Sidebar />
-
-        {/* Contenido principal que ocupa el espacio restante */}
+  
         <div style={{ marginTop: '64px', padding: '20px', flexGrow: 1, overflowY: 'auto' }}>
-          <h2 className="cursos-title">Cursos</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', marginTop: '10px' }}>
-            {/* Mapeamos los cursos obtenidos del backend y renderizamos cada CursoCard */}
+          <h2>Cursos</h2>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)', // Tres elementos por fila
+              gap: '20px', // Espacio entre las tarjetas
+              marginTop: '10px',
+              // Si las tarjetas tienen un tamaño mínimo, puedes poner un límite a la fila
+            }}
+          >
             {cursos.map((curso, index) => (
               <CursoCard key={index} curso={curso} />
             ))}

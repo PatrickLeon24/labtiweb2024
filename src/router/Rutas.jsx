@@ -4,7 +4,7 @@ import Disponibilidad from "../disponibilidad/Disponibilidad"
 import Cursos from "../cursos/Cursos"
 import Manual from "../manual/Manual"
 import Material from "../material/Material"
-
+import ComponenteDetalle from "../manual/ComponenteDetalle";
 
 
 const Rutas = () => {
@@ -28,7 +28,12 @@ const Rutas = () => {
         {
             path: "/Materiales",
             element: <Material/>
+        },
+        {
+            path: "/componentes/:id",  // La ruta con un parámetro dinámico ':id'
+            element: <ComponenteDetalle />  // Componente que se mostrará al hacer click
         }
+      
 
 
 
