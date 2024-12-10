@@ -2,44 +2,15 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra horizontalmente */
-  justify-content: center; /* Centra verticalmente */
-  min-height: calc(100vh - 64px); /* Asegura que ocupe toda la altura de la ventana, restando la TopBar */
-  padding-top: 64px; /* Ajusta para dejar espacio al header */
-  text-align: center; /* Centra el texto */
-  margin-left: 250px; /* Reserva espacio para el Sidebar */
+  
+  height: 100vh; /* Centra el texto */
+  /* Reserva espacio para el Sidebar */
 }
 
 /* Estilos para la TopBar */
-.topbar {
-  height: 64px; /* Altura fija para la barra superior */
-  background-color: #333; /* Color de fondo de la barra superior */
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10; /* Asegura que la TopBar esté por encima del contenido */
-}
 
 /* Estilos para el Sidebar */
-.sidebar {
-  width: 250px; /* Ancho fijo para el Sidebar */
-  background-color: #f4f4f4;
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 64px; /* Fija el Sidebar debajo de la TopBar */
-  left: 0;
-  bottom: 0;
-  height: calc(100vh - 64px); /* Hace que el Sidebar ocupe el resto de la pantalla */
-  z-index: 5; /* Mantener el Sidebar debajo de la TopBar */
-  transition: all 0.3s ease;
-}
+
 
 /* Estilos para el contenido principal */
 .content {
@@ -49,9 +20,9 @@
   padding: 20px;
   margin-top: 64px; /* Asegura que el contenido quede debajo del TopBar */
   /* Reserva espacio para el Sidebar */
-  overflow-y: auto;
+ 
   text-align: center;
-  min-height: calc(100vh - 64px); /* Asegura altura completa restando la TopBar */
+   /* Asegura altura completa restando la TopBar */
 }
 
 /* Ajustes para la CardList y las tarjetas de curso */
