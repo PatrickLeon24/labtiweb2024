@@ -18,33 +18,26 @@ const TopBar = () => {
       {/* Título */}
       <h1 style={styles.title}>Plataforma LABS TI</h1>
 
+      {/* Imagen de la Universidad de Lima a la derecha */}
+      <a href="https://www.ulima.edu.pe/pregrado/ingenieria-de-sistemas/plan-de-estudios-de-sistemas" style={styles.universityLink}>
+        <img
+          src="https://presidentsmedals.com/images/mugshots/4303498.jpg"
+          alt="Universidad de Lima"
+          style={styles.universityImage}
+        />
+      </a>
+
       {/* Menú de navegación si está abierto */}
       {isMenuOpen && (
         <nav style={styles.nav}>
-          <ul>
-            <li>
-              <a href="#home" style={styles.navItem}>Home</a>
-            </li>
-            <li>
-              <a href="#about" style={styles.navItem}>About</a>
-            </li>
-            <li>
-              <a href="#services" style={styles.navItem}>Services</a>
-            </li>
-            <li>
-              <a href="#contact" style={styles.navItem}>Contact</a>
-            </li>
-          </ul>
+          {/* Agrega los elementos de navegación aquí si los tienes */}
         </nav>
       )}
     </header>
   );
-  
 };
 
 const styles = {
-
-    
   /* Top app bar */
   topBar: {
     display: 'flex',
@@ -73,9 +66,27 @@ const styles = {
   /* Título centrado */
   title: {
     fontSize: '24px',
-    margin: '0',
+    margin: '50px',
     textAlign: 'center', // Centra el texto
     flexGrow: 1, // El título ocupa el espacio restante
+    marginLeft: "410px",
+  },
+
+  /* Enlace de la Universidad de Lima */
+  universityLink: {
+    marginRight: '30px', // Separación entre el título y el enlace
+    marginLeft: '20px',
+    margin: '30px',
+    padding: '0',
+    width: '120px',
+    
+
+  },
+
+  /* Estilo de la imagen */
+  universityImage: {
+    width: '120px',  // Tamaño de la imagen, puedes ajustarlo según lo necesites
+    height: 'auto',  // Mantiene las proporciones de la imagen
   },
 
   /* Menú de navegación */
@@ -101,6 +112,5 @@ const styles = {
     backgroundColor: '#e69500',
   },
 };
-
 
 export default TopBar;
