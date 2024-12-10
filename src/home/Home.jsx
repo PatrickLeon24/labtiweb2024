@@ -17,6 +17,7 @@ const Home = () => {
           throw new Error("No se pudieron cargar los laboratorios");
         }
         const data = await response.json();
+        console.log(data)
         setLaboratorios(data);  // Almacena los datos obtenidos en el estado
       } catch (error) {
         console.error("Error al cargar los laboratorios:", error);
@@ -27,7 +28,7 @@ const Home = () => {
   }, []);  // El arreglo vacío [] asegura que solo se ejecute una vez cuando el componente se monte
 
   return (
-    <div className="home-container">
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       {/* TopBar en la parte superior */}
       <TopBar className="topbar" />
       
@@ -47,6 +48,7 @@ const Home = () => {
                 {laboratorios.map((laboratorio) => (
                   <Aula 
                     key={laboratorio.id}
+                    id={laboratorio.id}
                     title={laboratorio.nombre} 
                     description={laboratorio.descripcion} 
                     imagen={laboratorio.foto1}  // Puedes elegir cuál foto mostrar

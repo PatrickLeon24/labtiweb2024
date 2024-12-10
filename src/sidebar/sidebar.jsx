@@ -8,7 +8,7 @@ const Sidebar = () => {
     sidebar: {
       position: 'relative',
       width: '200px',
-      height: '100vh',
+      height: '100%',
       left: '0',
       top: '80px',
       backgroundColor: '#D9D9D9',

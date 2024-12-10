@@ -46,7 +46,7 @@ const styles = {
     justifyContent: 'space-between', // Distribuir espacio entre los elementos
     padding: '8px 20px', // Espaciado a los lados
     gap: '6px',
-
+    
     position: 'absolute',
     width: '100%', // Asegura que el top bar ocupe el 100% del ancho
     height: '64px',
