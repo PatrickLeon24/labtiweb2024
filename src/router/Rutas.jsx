@@ -6,6 +6,7 @@ import Manual from "../manual/Manual"
 import Material from "../material/Material"
 import ComponenteDetalle from "../manual/ComponenteDetalle";
 import DetalleLaboratorio from "../home/DetalleLaboratorio";
+import DetalleCurso from "../cursos/DetalleCurso";
 
 const Rutas = () => {
     return createHashRouter([
@@ -36,6 +37,10 @@ const Rutas = () => {
         {
             path: "/detalle-laboratorio/:id",  // La ruta con un parámetro dinámico ':id'
             element: <DetalleLaboratorio />  // Componente que se mostrará al hacer click
+        },
+        {
+            path: "/detalle-curso/:id",  // La ruta con un parámetro dinámico ':id'
+            element: <DetalleCurso />  // Componente que se mostrará al hacer click
         }
       
 

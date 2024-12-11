@@ -1,6 +1,7 @@
 import React from 'react';
-
-const CursoCard = ({ curso }) => {
+import { useNavigate } from "react-router-dom";
+const CursoCard = ({ id,curso }) => {
+  const navigate = useNavigate();
   // Estilos en línea para la tarjeta
   const cardStyle = {
     backgroundColor: '#f4f4f4',
@@ -39,9 +40,14 @@ const CursoCard = ({ curso }) => {
     color: '#888',
   };
   
+  const handleClick = () => {
+    // Redirige a la página de detalles del laboratorio
+   
+    navigate(`/detalle-curso/${id}`);
+  };
 
   return (
-    <div style={cardStyle} >
+    <div style={cardStyle} onClick={handleClick} >
       <div style={imagePlaceholderStyle}>
         <img src={curso.foto1} alt={curso.nombre} style={imageStyle} /> {/* Foto del curso */}
       </div>

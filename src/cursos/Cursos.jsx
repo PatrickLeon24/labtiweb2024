@@ -44,8 +44,8 @@ const Cursos = () => {
               // Si las tarjetas tienen un tamaño mínimo, puedes poner un límite a la fila
             }}
           >
-            {cursos.map((curso, index) => (
-              <CursoCard key={index} curso={curso} />
+            {cursos.map((curso) => (
+              <CursoCard key={curso.id} id={curso.id} curso={curso} />
             ))}
           </div>
         </div>

@@ -56,10 +56,6 @@ const DetalleLaboratorio = () => {
     </div>
 
 
-
-
-
-   
     
   );
 };
