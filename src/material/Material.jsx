@@ -66,7 +66,7 @@ const Material = () => {
                   <div key={material.id} className="material-item">
                     <span>{material.nombre}</span>
                     <a
-                      href={material.url}
+                      href={`http://${pcdeApoyo}/back/descargar_pdf/${material.url}`}
                       className="download-button"
                       download
                     >

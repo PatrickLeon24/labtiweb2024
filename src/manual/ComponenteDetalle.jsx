@@ -57,7 +57,7 @@ const ComponenteDetalle = () => {
               componente.manuals.map((manual) => (
                 <div key={manual.id} className="manual-item">
                   <span>{manual.nombre}</span>
-                  <a href={manual.url} className="download-button" download>
+                  <a href={`http://${pcdeApoyo}/back/descargar_pdf/${manual.url}`} className="download-button" download>
                     ⬇ Descargar
                   </a>
                 </div>

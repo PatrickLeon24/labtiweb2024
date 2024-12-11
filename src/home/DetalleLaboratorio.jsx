@@ -31,7 +31,7 @@ const DetalleLaboratorio = () => {
   }
 
   return (
-    <div className="detalle-container">
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
     <TopBar className="topbar" />
     <div style={{ display: 'flex', flexGrow: 1 }}>
 
