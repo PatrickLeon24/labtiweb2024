@@ -75,38 +75,7 @@ const Manual = () => {
   }
 
   // Si hay un componente seleccionado, mostramos la vista de detalles
-  if (selectedComponente) {
-    return (
-      <div className="manual-container">
-        <TopBar className="topbar" />
-        <div style={{ display: 'flex', flexGrow: 1 }}>
-          <Sidebar className="sidebar" />
-          <div className="content">
-            <h2>{selectedComponente.nombre}</h2>
-            <div style={{ marginBottom: '20px' }}>
-              <img
-                src={selectedComponente.foto1}
-                alt={selectedComponente.nombre}
-                style={{ width: '100%', maxWidth: '600px', borderRadius: '8px' }}
-              />
-            </div>
-            <h3>Manual(es) de {selectedComponente.nombre}</h3>
-            <div className="manual-list">
-              {/* Listar los manuales asociados al componente */}
-              {selectedComponente.manuals && selectedComponente.manuals.map((manual) => (
-                <div key={manual.id} className="manual-item">
-                  <span>{manual.nombre}</span>
-                  <a href={manual.url} className="download-button" download>
-                    ⬇ Descargar
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+ 
 
   // Si no hay componente seleccionado, mostramos todos los componentes
   return (
