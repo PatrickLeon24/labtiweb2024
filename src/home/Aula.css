@@ -1,10 +1,10 @@
 .aula-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
   
   .aula-title {
     font-size: 28px;
@@ -45,7 +45,7 @@
   /* Estilo para el espacio de la imagen del aula */
   .aula-image-placeholder {
     width: 100%;
-    height: 250px; /* Aumenta la altura de la imagen */
+    height: 400px; /* Aumenta la altura de la imagen */
     background-color: #e0e0e0;
     border-radius: 8px;
     margin-bottom: 20px;

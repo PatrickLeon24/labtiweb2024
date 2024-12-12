@@ -50,7 +50,7 @@ const Home = () => {
                     key={laboratorio.id}
                     id={laboratorio.id}
                     title={laboratorio.nombre} 
-                    description={laboratorio.descripcion} 
+                    
                     imagen={laboratorio.foto1}  // Puedes elegir cuál foto mostrar
                   />
                 ))}
