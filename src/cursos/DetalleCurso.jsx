@@ -14,7 +14,7 @@ const DetalleCurso = () => {
   useEffect(() => {
     console.log(id);
     // Hacer una solicitud para obtener los materiales del curso con el id específico
-    fetch(`http://192.168.51.209:8000/back/obtener_materiales_por_curso/`, {
+    fetch(`http://${pcdeApoyo}/back/obtener_materiales_por_curso/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',  // Asegúrate de que el tipo de contenido sea 'application/json'
