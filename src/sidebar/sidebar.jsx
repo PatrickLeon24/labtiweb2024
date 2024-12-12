@@ -93,19 +93,7 @@ const Sidebar = () => {
       >
         Disponibilidad
       </a>
-      <a
-        href="#materiales"
-        style={{
-          ...styles.navItem,
-          ...(hovered === 3 ? styles.navItemHover : {}),
-          ...(selected === 3 ? styles.navItemSelected : {}),
-        }}
-        onMouseEnter={() => handleMouseEnter(3)}
-        onMouseLeave={handleMouseLeave}
-        onClick={() => handleItemClick(3)}  // Removed preventDefault()
-      >
-        Materiales
-      </a>
+      
       
       <a
         href="#manuales"
