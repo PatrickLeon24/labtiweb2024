@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Slider from 'react-slick';  // Importa Slider desde react-slick
 import { pcdeApoyo } from '../config';
- // Si tienes estilos específicos, inclúyelos
 import Sidebar from "../sidebar/sidebar";
 import TopBar from "../topbar/TopBar";
 
 const ComponenteDetalle = () => {
-  const { id } = useParams();  // Obtiene el id del componente desde la URL
+  const { id } = useParams();
   const [componente, setComponente] = useState(null);
-  const [loading, setLoading] = useState(true);  // Para mostrar el estado de carga
+  const [loading, setLoading] = useState(true);
 
-  // Se ejecuta cuando el componente se monta o cuando cambia el ID
   useEffect(() => {
-    setLoading(true);  // Iniciar carga cuando cambie el id
+    setLoading(true);
     fetch(`http://${pcdeApoyo}/back/obtener_componente1/${id}`)
       .then(response => response.json())
       .then(data => {
@@ -25,34 +24,63 @@ const ComponenteDetalle = () => {
       });
   }, [id]);
 
-  // Si estamos cargando, mostramos el mensaje de carga
   if (loading) {
     return <div>Cargando...</div>;
   }
 
-  // Si no se encontró el componente, mostramos un mensaje de error
   if (!componente) {
     return <div>No se pudo encontrar el componente.</div>;
   }
 
+  // Configuración básica de react-slick con autoplay
+  const settings = {
+    dots: true,  // Muestra puntos para navegar entre las imágenes
+    infinite: true,  // Permite el desplazamiento infinito
+    speed: 500,  // Velocidad de transición
+    slidesToShow: 1,  // Mostrar una imagen a la vez
+    slidesToScroll: 1,  // Avanzar una imagen por cada clic
+    autoplay: true,  // Habilita el deslizamiento automático
+    autoplaySpeed: 3000,  // Intervalo de 3 segundos entre cada deslizamiento
+  };
+
   return (
     <div className="manual-container">
-      {/* Aquí puedes incluir el TopBar y Sidebar si son necesarios */}
       <TopBar className="topbar" />
       <div style={{ display: 'flex', flexGrow: 1 }}>
         <Sidebar className="sidebar" />
         <div className="content">
           <h2>{componente.nombre}</h2>
+          
           <div style={{ marginBottom: '20px' }}>
-            <img
-              src={componente.foto1}
-              alt={componente.nombre}
-              style={{ width: '100%', maxWidth: '600px', borderRadius: '8px' }}
-            />
+            <p>{componente.descripcion || "Descripción no disponible"}</p>
           </div>
+
+          {/* Carrusel de las fotos 2 y 3 */}
+          <div style={{ marginBottom: '20px', maxWidth: '600px', margin: '0 auto' }}>
+            <Slider {...settings}>
+              {componente.foto2 && (
+                <div>
+                  <img
+                    src={componente.foto2}
+                    alt="Foto 2"
+                    style={{ width: '100%', borderRadius: '8px' }}
+                  />
+                </div>
+              )}
+              {componente.foto3 && (
+                <div>
+                  <img
+                    src={componente.foto3}
+                    alt="Foto 3"
+                    style={{ width: '100%', borderRadius: '8px' }}
+                  />
+                </div>
+              )}
+            </Slider>
+          </div>
+
           <h3>Manual(es) de {componente.nombre}</h3>
           <div className="manual-list">
-            {/* Listar los manuales asociados al componente */}
             {componente.manuals && componente.manuals.length > 0 ? (
               componente.manuals.map((manual) => (
                 <div key={manual.id} className="manual-item">
