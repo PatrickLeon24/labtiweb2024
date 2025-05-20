@@ -9,19 +9,33 @@ const LoginPanel = ({ isOpen, onClose }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (panelRef.current && !panelRef.current.contains(event.target)) {
-        onClose();
+    const storedUser = localStorage.getItem('usuario');
+  if (storedUser) {
+    try {
+      const usuario = JSON.parse(storedUser);
+      if (usuario && usuario.rol === 'admin') {
+        navigate('/AdminInterface', { replace: true });
       }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+    } catch (error) {
+      console.error("Error al parsear usuario desde localStorage:", error);
+      localStorage.removeItem('usuario');
     }
+  }
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+  const handleClickOutside = (event) => {
+    if (panelRef.current && !panelRef.current.contains(event.target)) {
+      onClose();
+    }
+  };
+
+  if (isOpen) {
+    document.addEventListener('mousedown', handleClickOutside);
+  }
+
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+    
   }, [isOpen, onClose]);
 
   const handleSubmit = async (e) => {
@@ -40,9 +54,9 @@ const LoginPanel = ({ isOpen, onClose }) => {
     if (response.ok) {
       localStorage.setItem('usuario', JSON.stringify(data));
       if (data.rol === 'admin') {
-        navigate(`/AdminInterface`);;
+        navigate(`/AdminInterface`,{replace: true});;
       } else {
-        window.location.href = '/AdminInterface'; // o donde corresponda
+        navigate('/', { replace: true });
       }
     } else {
       setError(data.error || 'Error al iniciar sesión');
